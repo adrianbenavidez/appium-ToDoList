@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d10feb09-c2a4-4240-ba9c-54fcee14f02e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/AllListsPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pageObjects/AllListsPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/NewTaskPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pageObjects/NewTaskPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/PageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/pageObjects/PageBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,10 +43,11 @@
     "last_opened_file_path": "C:/Appium-Proyect/ProyectoPruebaAppium",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.ToDoListTestNG">
+  <component name="RunManager" selected="TestNG.ToDoListTest.test_add_task">
     <configuration name="ToDoList" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
@@ -69,14 +69,42 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ToDoListTestNG.clickAllListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoPruebaAppium" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ToDoListTestNG" />
+      <option name="METHOD_NAME" value="clickAllListTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ToDoListTest.test_add_task" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="ProyectoPruebaAppium" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ToDoListTest" />
+      <option name="METHOD_NAME" value="test_add_task" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.ToDoList" />
+      <item itemvalue="TestNG.ToDoListTestNG.clickAllListTest" />
+      <item itemvalue="TestNG.ToDoListTest.test_add_task" />
       <item itemvalue="TestNG.ToDoListTestNG" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.ToDoListTestNG" />
+        <item itemvalue="TestNG.ToDoListTest.test_add_task" />
         <item itemvalue="Application.ToDoList" />
+        <item itemvalue="TestNG.ToDoListTestNG.clickAllListTest" />
+        <item itemvalue="TestNG.ToDoListTestNG" />
       </list>
     </recent_temporary>
   </component>

@@ -1,8 +1,9 @@
+package pageObjects;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,6 +20,10 @@ public class PageBase {
     public void waitForVisivility(MobileElement element){
         WebDriverWait wait = new WebDriverWait(driver,WAIT);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void esperar() throws InterruptedException {
+        Thread.sleep(5000);
     }
 
     public void clear(MobileElement element){
