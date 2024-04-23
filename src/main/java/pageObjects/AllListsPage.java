@@ -1,6 +1,7 @@
+package pageObjects;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.pagefactory.AndroidBy;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 
 public class AllListsPage extends PageBase{
@@ -9,7 +10,7 @@ public class AllListsPage extends PageBase{
         super(appiumDriver);
     }
 
-    @AndroidFindBy(id = "fabSaveTask")
+    @AndroidFindBy(id = "fabAddTask")
     MobileElement addFirstTaskBtn;
 
     public void clickAddFirstTaskBtn(){
