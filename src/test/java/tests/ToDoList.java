@@ -1,22 +1,35 @@
+package tests;
+
+import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
 import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.Test;
+import org.testng.Assert;
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-public class ToDoListTestNG {
+public class ToDoList {
 
-    AndroidDriver<MobileElement> driver;
+    static AppiumDriver driver;
 
-    @BeforeTest
-    public void setUp() throws MalformedURLException {
+    public static void main(String[] args) {
+
+        try {
+            openToDoListApp();
+        } catch (Exception exp) {
+            System.out.println("Cause is: " + exp.getCause());
+            System.out.println("Message is: " + exp.getMessage());
+            exp.printStackTrace();
+        }
+    }
+
+    public static void openToDoListApp() throws MalformedURLException {
+
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
@@ -29,29 +42,14 @@ public class ToDoListTestNG {
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
-        driver = new AndroidDriver<MobileElement>(url, caps);
+        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(url, caps);
 
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         System.out.println("Application Started...");
-    }
 
-
-    @Test
-    public void clickAllListTest() {
-
-        MobileElement meAllListButton = driver.findElement(By.id("spinnerToolbar"));
-        meAllListButton.click();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        System.out.println("Test clickAllListTest Started...");
-    }
-
-   /* @Test
-    public void clickOptionsTest() {
         MobileElement mePlusButton = driver.findElement(By.xpath("//android.widget.ImageView[@content-desc='More options']"));
+
         mePlusButton.click();
 
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
@@ -60,18 +58,8 @@ public class ToDoListTestNG {
 
         System.out.println("Resultado: " + result.getText());
 
-        Assert.assertEquals(result.getText(), "Task Lists");
+        Assert.assertEquals(result.getText(),"Task Lists");
 
     }
-*/
-
-    @AfterTest
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-        System.out.println("Application Completed...");
-    }
-
 
 }

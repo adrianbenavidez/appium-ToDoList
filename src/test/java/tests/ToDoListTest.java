@@ -1,3 +1,5 @@
+package tests;
+
 import org.json.simple.parser.ParseException;
 import org.testng.annotations.DataProvider;
 import pageObjects.AllListsPage;
@@ -8,7 +10,7 @@ import utils.JsonReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-public class ToDoListTest extends TestBase{
+public class ToDoListTest extends TestBase {
 
     AllListsPage allListPage;
     NewTaskPage newTaskPage;
@@ -22,9 +24,9 @@ public class ToDoListTest extends TestBase{
 
     @Test(dataProvider = "tasks data")
     public void test_add_task(String taskName) throws MalformedURLException, InterruptedException {
-        setUp();
-        allListPage = new AllListsPage(driver);
-        newTaskPage = new NewTaskPage(driver);
+        TestBase.setUp();
+        allListPage = new AllListsPage(TestBase.driver);
+        newTaskPage = new NewTaskPage(TestBase.driver);
 
         allListPage.clickAddFirstTaskBtn();
         newTaskPage.enterTaskName(taskName);

@@ -1,33 +1,22 @@
+package tests;
+
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
-import org.openqa.selenium.By;
+import io.cucumber.testng.AbstractTestNGCucumberTests;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.testng.Assert;
+import org.testng.annotations.AfterTest;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.concurrent.TimeUnit;
 
-public class ToDoList {
+public class TestBase extends AbstractTestNGCucumberTests {
 
-    static AppiumDriver driver;
+    public static AppiumDriver driver;
 
-    public static void main(String[] args) {
-
-        try {
-            openToDoListApp();
-        } catch (Exception exp) {
-            System.out.println("Cause is: " + exp.getCause());
-            System.out.println("Message is: " + exp.getMessage());
-            exp.printStackTrace();
-        }
-    }
-
-    public static void openToDoListApp() throws MalformedURLException {
-
+    public static void setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
@@ -40,24 +29,19 @@ public class ToDoList {
 
         URL url = new URL("http://127.0.0.1:4723/wd/hub");
 
-        AndroidDriver<MobileElement> driver = new AndroidDriver<MobileElement>(url, caps);
+        driver = new AndroidDriver<MobileElement>(url, caps);
 
         //driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         System.out.println("Application Started...");
+    }
 
-        MobileElement mePlusButton = driver.findElement(By.xpath("//android.widget.ImageView[@content-desc='More options']"));
-
-        mePlusButton.click();
-
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-        MobileElement result = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.splendapps.splendo:id/title' and @text='Task Lists']"));
-
-        System.out.println("Resultado: " + result.getText());
-
-        Assert.assertEquals(result.getText(),"Task Lists");
-
+    @AfterTest
+    public void tearDown() {
+        if (driver != null) {
+            driver.quit();
+        }
+        System.out.println("Application Completed...");
     }
 
 }

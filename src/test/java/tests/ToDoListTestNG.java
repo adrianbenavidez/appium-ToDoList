@@ -1,19 +1,24 @@
-import io.appium.java_client.AppiumDriver;
+package tests;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import org.openqa.selenium.By;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterTest;
-
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
-public class TestBase {
+public class ToDoListTestNG {
 
-    public static AppiumDriver driver;
+    AndroidDriver<MobileElement> driver;
 
-    public static void setUp() throws MalformedURLException {
+    @BeforeTest
+    public void setUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
         caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "12");
@@ -33,6 +38,35 @@ public class TestBase {
         System.out.println("Application Started...");
     }
 
+
+    @Test
+    public void clickAllListTest() {
+
+        MobileElement meAllListButton = driver.findElement(By.id("spinnerToolbar"));
+        meAllListButton.click();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        System.out.println("Test clickAllListTest Started...");
+    }
+
+   /* @Test
+    public void clickOptionsTest() {
+        MobileElement mePlusButton = driver.findElement(By.xpath("//android.widget.ImageView[@content-desc='More options']"));
+        mePlusButton.click();
+
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        MobileElement result = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.splendapps.splendo:id/title' and @text='Task Lists']"));
+
+        System.out.println("Resultado: " + result.getText());
+
+        Assert.assertEquals(result.getText(), "Task Lists");
+
+    }
+*/
+
     @AfterTest
     public void tearDown() {
         if (driver != null) {
@@ -40,5 +74,6 @@ public class TestBase {
         }
         System.out.println("Application Completed...");
     }
+
 
 }
